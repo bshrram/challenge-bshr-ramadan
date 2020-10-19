@@ -13,6 +13,9 @@ const OUTPUT_BOX_STYLES = {
 
 export default class OutputBox extends React.Component {
   render() {
-    return <div style={OUTPUT_BOX_STYLES}>Output goes here &#x263A;</div>;
+    const {boxData} = this.props
+    let s = boxData? JSON.stringify(boxData) : "empty"
+    s = s.slice(1, -1).replace(/\"/g, ' ')
+    return <div style={OUTPUT_BOX_STYLES}>{s}</div>;
   }
 }
